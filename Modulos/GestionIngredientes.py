@@ -27,6 +27,8 @@ def agregar_ingrediente_categoria(ingredientes: list, nuevo_ingrediente):
     """
 
 def verify_within_ingredients(ingredient_name, ingredients_list):
+    """Función para verificar si un ingrediente ya existe en la lista de ingredientes
+    """
     for ingredient in ingredients_list:
         if ingredient.nombre == ingredient_name:
             print(f"\n[italic red] El ingrediente {ingredient_name} ya existe. Inténtelo de nuevo.\n")
