@@ -6,11 +6,13 @@ class HotDog():
     
     def __init__(self, nombre, pan: Pan, salchicha: Salchicha, salsas: list, toppings: list, acompañante: Acompañante):
         
+        self.nombre = nombre
         self.pan = pan
         self.salchicha = salchicha
         self.salsas = salsas
         self.toppings = toppings
         self.acompañante = acompañante
+        self.stock = 1
 
     def dar_stock(self):
         """Función para obtener el stock de la salsa
@@ -19,24 +21,18 @@ class HotDog():
             return "No disponible"
         else:
             return "Disponible"
-        
+    
     def info_salsas(self):
         """Función para obtener la información de las salsas
         """
-        for i in self.salsas:
-            txt = '\n'
-            txt = txt + i.info_salsa() + '\n'
-    
-        return txt
+        # Return a list of salsa info dicts
+        return [i.info_salsa() for i in self.salsas]
     
     def info_toppings(self):
         """Función para obtener la información de los toppings
         """
-        for i in self.toppings:
-            txt = '\n'
-            txt = txt + i.info_topping() + '\n'
-    
-        return txt
+        # Return a list of topping info dicts
+        return [i.info_topping() for i in self.toppings]
     
     def info_hotdog(self):
         """Función para obtener la información del hotdog
@@ -51,5 +47,4 @@ class HotDog():
             "Stock": self.dar_stock()
         }
         return info
-    
     

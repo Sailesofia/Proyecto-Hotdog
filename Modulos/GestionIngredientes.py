@@ -274,7 +274,7 @@ def registrar_salsa (salsas_app):
     print(f"\n[italic green] La salsa {nueva_salsa.nombre} ha sido registrado exitosamente.\n")
 
 def registrar_topping (toppings_app):
-    """Función para registrar una nueva salchicha
+    """Función para registrar una nuevo topping
     """  
     print ("\n[italic blue]------------- Introduzca los detalles del ingrediente ------------- \n")  
     toppings = toppings_app
@@ -295,7 +295,7 @@ def registrar_topping (toppings_app):
 
     nuevo_topping = Toppings(nombre, tipo, presentacion)
     agregar_ingrediente_categoria(toppings, nuevo_topping)
-print(f"\n[italic green] El topping {nuevo_topping.nombre} ha sido registrado exitosamente.\n")
+    print(f"\n[italic green] El topping {nuevo_topping.nombre} ha sido registrado exitosamente.\n")
 
 
 # Funciones para eliminar ingredientes con validaciones
