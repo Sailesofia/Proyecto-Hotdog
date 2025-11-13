@@ -3,6 +3,10 @@ import random
 from collections import Counter, defaultdict
 import matplotlib.pyplot as plt
 
+#El counter me deja contar elementos facilmente. Y el defaultdict me deja inicializar contadores automaticamente. Lo utilizo para contar 
+# hotdogs vendidos y causas de salida al ser demasiados datos. No se guardan en el json, solo se usan en la simulacion del dia de ventas.
+
+#Función para simular un día de ventas
 def simulacion_dia_de_ventas(app):
     """Función para simular un día de ventas en el puesto de hot dogs.
     El simulador modifica el stock en los objetos de ingredientes de la instancia app.
