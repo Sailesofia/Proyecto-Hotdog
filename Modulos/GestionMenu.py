@@ -175,9 +175,47 @@ def eliminar_hotdog_menu(hotdogs):
     """Función para eliminar un hotdog del inventario mediante un menú.
     """
 
+    print("\n[italic blue]Hotdogs disponibles:")
+    for i in range(0, len(hotdogs)):
+        print(f"{i+1}. {hotdogs[i].nombre}")
+
+    try: 
+        hotdog_eliminar = hotdogs[int(input("\nSeleccione el número del hotdog que desea eliminar: "))-1]
+    except:
+        print ("\n[italic red]Opción inválida. Volviendo al menú...")
+        return
+
+    if hotdog_eliminar.stock > 0:
+        print("\n[italic red]No se puede eliminar el hotdog porque hay unidades en stock.")
+        opcion = input ("""
+            ¿Desea eliminar el hotdog de todos modos?
+                                        
+            1. Sí 
+            2. No
+                                                                
+            ---> """)
+                    
+        if opcion =="1":
+            eliminar_hotdog(hotdogs, hotdog_eliminar)
+            return
+        elif opcion =="2":
+            print ("[italic blue]Volviendo al menu...")
+            return
+        else:
+            print ("[italic red]Opción inválida. Volviendo al menú...")
+        return
+    else:
+        eliminar_hotdog(hotdogs, hotdog_eliminar)
+
 def eliminar_hotdog(hotdogs, hotdog_eliminar):
     """Función para eliminar un hotdog del inventario.
     """
+
+    for i in range(0, len(hotdogs)):
+        if hotdog_eliminar == hotdogs[i]:
+            del hotdogs[i]
+            print("\n[italic green]Hotdog eliminado exitosamente.")
+            break
 
 #Funcion para gestionar el menu de hotdogs
 def gestion_menu(self):
