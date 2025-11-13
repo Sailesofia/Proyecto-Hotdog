@@ -6,7 +6,7 @@
                 "Tipo": "blanco",
                 "Tamaño": 6,
                 "Unidad": "pulgadas",
-                "Stock": "No disponible"
+                "Stock": "Disponible"
             },
             {
                 "Nombre": "integral",
@@ -330,7 +330,7 @@
                 "Tipo": "blanco",
                 "Tamaño": 6,
                 "Unidad": "pulgadas",
-                "Stock": "No disponible"
+                "Stock": "Disponible"
             },
             "Salchicha": {
                 "Nombre": "weiner",

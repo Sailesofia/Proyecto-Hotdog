@@ -56,7 +56,7 @@ def agregar_hotdog(hotdogs, panes, salchichas, acompañantes, salsas, toppings):
     except:
         print("\n[italic red]Selección inválida. No se puede crear el hotdog.")
         return
-    if salchicha < 0 or salchicha >= len(salchichas):
+    if salchicha < 0 or salchicha > len(salchichas):
         print("\n[italic red]Selección inválida. No se puede crear el hotdog.")
         return
     nueva_salchicha = salchichas[salchicha]
@@ -77,7 +77,7 @@ def agregar_hotdog(hotdogs, panes, salchichas, acompañantes, salsas, toppings):
     
         if seleccion == 0:
             break
-        elif seleccion < 0 or seleccion >= len(salsas):
+        elif seleccion < 0 or seleccion > len(salsas):
             print("\n[italic red]Selección inválida. No se puede crear el hotdog.")
             return
          
@@ -98,7 +98,7 @@ def agregar_hotdog(hotdogs, panes, salchichas, acompañantes, salsas, toppings):
         
         if seleccion == 0:
             break
-        elif seleccion < 0 or seleccion >= len(toppings):
+        elif seleccion < 0 or seleccion > len(toppings):
             print("\n[italic red]Selección inválida. No se puede crear el hotdog.")
             return
         
@@ -112,7 +112,7 @@ def agregar_hotdog(hotdogs, panes, salchichas, acompañantes, salsas, toppings):
     except:
         print("\n[italic red]Selección inválida. No se puede crear el hotdog.")
         return
-    if acompañante < 0 or acompañante >= len(acompañantes):
+    if acompañante < 0 or acompañante > len(acompañantes):
         print("\n[italic red]Selección inválida. No se puede crear el hotdog.")
         return
     nuevo_acompañante = acompañantes[acompañante]
