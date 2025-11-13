@@ -6,6 +6,7 @@ class HotDog():
     
     def __init__(self, nombre, pan: Pan, salchicha: Salchicha, salsas: list, toppings: list, acompañante: Acompañante):
         
+        self.nombre = nombre
         self.pan = pan
         self.salchicha = salchicha
         self.salsas = salsas

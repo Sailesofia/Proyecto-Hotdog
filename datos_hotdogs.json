@@ -1,0 +1,326 @@
+{
+    "ingredientes": {
+        "panes": [
+            {
+                "Nombre": "simple",
+                "Tipo": "blanco",
+                "Tamaño": 6,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "integral",
+                "Tipo": "trigo entero",
+                "Tamaño": 6,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "especial",
+                "Tipo": "queso",
+                "Tamaño": 9,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "grande",
+                "Tipo": "blanco",
+                "Tamaño": 9,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "italiano",
+                "Tipo": "oregano",
+                "Tamaño": 9,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "sin gluten",
+                "Tipo": "arroz",
+                "Tamaño": 6,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "saludable",
+                "Tipo": "avena",
+                "Tamaño": 9,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "gigante",
+                "Tipo": "ajonjolí",
+                "Tamaño": 12,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "submarino",
+                "Tipo": "blanco",
+                "Tamaño": 12,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            }
+        ],
+        "salchichas": [
+            {
+                "Nombre": "weiner",
+                "Tipo": "cerdo",
+                "Tamaño": 6,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "breakfast",
+                "Tipo": "res",
+                "Tamaño": 6,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "alemana",
+                "Tipo": "cerdo",
+                "Tamaño": 9,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "francesa",
+                "Tipo": "res",
+                "Tamaño": 9,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "polaca",
+                "Tipo": "mezcla",
+                "Tamaño": 9,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "light",
+                "Tipo": "pollo",
+                "Tamaño": 6,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "boudin",
+                "Tipo": "pollo",
+                "Tamaño": 9,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "vienna",
+                "Tipo": "mezcla",
+                "Tamaño": 12,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "salicce",
+                "Tipo": "cerdo",
+                "Tamaño": 12,
+                "Unidad": "pulgadas",
+                "Stock": "Disponible"
+            }
+        ],
+        "salsas": [
+            {
+                "Nombre": "ketchup",
+                "Base": "tomate",
+                "Color": "rojo",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "mayonesa",
+                "Base": "aceite",
+                "Color": "blanco",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "BBQ",
+                "Base": "azucar morena",
+                "Color": "marrón",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "mostaza",
+                "Base": "mostaza",
+                "Color": "amarillo",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "relish",
+                "Base": "pepino",
+                "Color": "verde",
+                "Stock": "Disponible"
+            }
+        ],
+        "toppings": [
+            {
+                "Nombre": "tomate",
+                "Tipo": "vegetal",
+                "Presentacion": "cuadritos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "cebolla",
+                "Tipo": "vegetal",
+                "Presentacion": "cuadritos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "repollo",
+                "Tipo": "vegetal",
+                "Presentacion": "rallado",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "cilantro",
+                "Tipo": "vegetal",
+                "Presentacion": "picadito",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "papitas",
+                "Tipo": "fritura",
+                "Presentacion": "picadito",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "nuez moscada",
+                "Tipo": "nuez",
+                "Presentacion": "moscada",
+                "Stock": "Disponible"
+            }
+        ],
+        "acompañantes": [
+            {
+                "Nombre": "saladas pequeñas",
+                "Tipo": "Papas chip",
+                "Tamaño": 200,
+                "Unidad": "gramos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "saladas medianas",
+                "Tipo": "Papas chip",
+                "Tamaño": 350,
+                "Unidad": "gramos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "saladas grandes",
+                "Tipo": "Papas chip",
+                "Tamaño": 500,
+                "Unidad": "gramos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "doradas con queso pequeñas",
+                "Tipo": "Papas chip",
+                "Tamaño": 200,
+                "Unidad": "gramos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "doradas con queso medianas",
+                "Tipo": "Papas chip",
+                "Tamaño": 350,
+                "Unidad": "gramos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "doradas con queso grandes",
+                "Tipo": "Papas chip",
+                "Tamaño": 500,
+                "Unidad": "gramos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Super papas",
+                "Tipo": "Papas fritas",
+                "Tamaño": 150,
+                "Unidad": "gramos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Papas",
+                "Tipo": "Papas fritas",
+                "Tamaño": 100,
+                "Unidad": "gramos",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Cola Negra",
+                "Tipo": "Refresco",
+                "Tamaño": 350,
+                "Unidad": "mililitros",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Kolita",
+                "Tipo": "Refresco",
+                "Tamaño": 350,
+                "Unidad": "mililitros",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Té helado",
+                "Tipo": "Refesco",
+                "Tamaño": 350,
+                "Unidad": "mililitros",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Naranjada",
+                "Tipo": "Refresco",
+                "Tamaño": 350,
+                "Unidad": "mililitros",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Limonada",
+                "Tipo": "Jugo",
+                "Tamaño": 250,
+                "Unidad": "mililitros",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Manzana",
+                "Tipo": "Jugo",
+                "Tamaño": 250,
+                "Unidad": "mililitros",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Naranja",
+                "Tipo": "Jugo",
+                "Tamaño": 250,
+                "Unidad": "mililitros",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "Pera",
+                "Tipo": "Jugo",
+                "Tamaño": 250,
+                "Unidad": "mililitros",
+                "Stock": "Disponible"
+            },
+            {
+                "Nombre": "No vendemos alcohol",
+                "Tipo": "Alcohol",
+                "Tamaño": 500,
+                "Unidad": "mililitros",
+                "Stock": "Disponible"
+            }
+        ]
+    },
+    "hotdogs_menu": []
+}
