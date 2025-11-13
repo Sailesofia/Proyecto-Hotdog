@@ -295,7 +295,7 @@ def registrar_topping (toppings_app):
 
     nuevo_topping = Toppings(nombre, tipo, presentacion)
     agregar_ingrediente_categoria(toppings, nuevo_topping)
-print(f"\n[italic green] El topping {nuevo_topping.nombre} ha sido registrado exitosamente.\n")
+    print(f"\n[italic green] El topping {nuevo_topping.nombre} ha sido registrado exitosamente.\n")
 
 
 # Funciones para eliminar ingredientes con validaciones
