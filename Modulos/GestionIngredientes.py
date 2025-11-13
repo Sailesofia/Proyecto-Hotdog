@@ -36,7 +36,7 @@ def verify_within_ingredients(ingredient_name, ingredients_list):
     return False
 
 def registrar_pan (panes_app):
-        """Función para registrar un nuevo ingrediente
+        """Función para registrar un nuevo pan
         """ 
 
 def registrar_acompañante (acompañantes_app):
@@ -52,7 +52,7 @@ def registrar_salsa (salsas_app):
         """  
 
 def registrar_topping (toppings_app):
-        """Función para registrar una nueva salchicha
+        """Función para registrar una nuevo topping
         """  
 
 # Funciones para eliminar ingredientes con validaciones
