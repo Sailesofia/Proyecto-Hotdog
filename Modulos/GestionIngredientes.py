@@ -326,6 +326,7 @@ def registrar_topping (toppings_app):
 def eliminar_ingrediente_categoria(ingredientes: list, nombre_ingrediente, hotdogs_app):
     """Función para eliminar un ingrediente de la categoría correspondiente
     """
+    #Lista que contiene los hotdogs que utilizan el ingrediente a eliminar
     hotdogs = encontrar_hotdog_ingredientes(hotdogs_app, nombre_ingrediente)
 
     if len(hotdogs) > 0:
@@ -334,42 +335,60 @@ def eliminar_ingrediente_categoria(ingredientes: list, nombre_ingrediente, hotdo
             print(hotdog.info_hotdog())
     
         while True:
-            option = input ("""
-            ¿Desea eliminar el ingrediente de todos modos? Esta acción eliminará el hotdog que lo contenga.
+            opcion = input ("""
+            ¿Desea eliminar el ingrediente de todos modos? Esta acción eliminará todos los hotdogs que lo contengan.
                                         
             1. Sí 
             2. No
                                                                 
             ---> """)
                     
-            if option =="1":
-                eliminar_ingrediente
-            elif option =="2":
+            if opcion =="1":
+                eliminar_ingrediente(ingredientes, hotdogs_app, hotdogs, nombre_ingrediente)
+                return
+            elif opcion =="2":
                 print ("[italic blue]Volviendo al menu...")
-                break
+                return
             else:
                 print ("[italic red]Opción inválida. ")
+    else:
+        eliminar_ingrediente(ingredientes, hotdogs_app, hotdogs, nombre_ingrediente)
 
 def encontrar_hotdog_ingredientes (hotdogs_app, ingrediente):
     """Función para encontrar hotdogs que contienen un ingrediente específico
-    """  
-
+    """ 
     hotdogs = []
 
     for i in hotdogs_app:
-        if (i.pan == ingrediente) or (i.salchicha == ingrediente) or (i.acompañante == ingrediente) or (verify_within_ingredients(ingrediente, i.salsas) == True) or (verify_within_ingredients(ingrediente, i.toppings) == True):
+        # Normalize search term
+        nombre_buscar = ingrediente.lower() if isinstance(ingrediente, str) else str(ingrediente).lower()
+
+        # Helper to get the nombre attribute if the component is an object, otherwise string repr
+        def comp_nombre(comp):
+            if hasattr(comp, 'nombre'):
+                return comp.nombre.lower()
+            return str(comp).lower()
+
+        # Check pan, salchicha and acompañante
+        pan_match = comp_nombre(i.pan) == nombre_buscar
+        salchicha_match = comp_nombre(i.salchicha) == nombre_buscar
+        acompañante_match = comp_nombre(i.acompañante) == nombre_buscar
+
+        # Check inside lists (salsas and toppings) without invoking verify_within_ingredients to avoid prints
+        salsas_match = any((hasattr(s, 'nombre') and s.nombre.lower() == nombre_buscar) or (not hasattr(s, 'nombre') and str(s).lower() == nombre_buscar) for s in getattr(i, 'salsas', []))
+        toppings_match = any((hasattr(t, 'nombre') and t.nombre.lower() == nombre_buscar) or (not hasattr(t, 'nombre') and str(t).lower() == nombre_buscar) for t in getattr(i, 'toppings', []))
+
+        if pan_match or salchicha_match or acompañante_match or salsas_match or toppings_match:
             hotdogs.append(i)
-        else:
-            pass
 
     return hotdogs
 
 def eliminar_ingrediente (ingredientes_app, hotdogs_app, hotdogs: list, nombre_ingrediente):
     """Función para eliminar un ingrediente seleccionado
-    """ 
+    """  
 
-    if hotdogs < 1:
-        pass
+    if len(hotdogs) < 1:
+        print(f"\n[italic blue] No hay hotdogs que contengan este ingrediente.\n")
     else:
         for i in hotdogs_app:
             for j in hotdogs:
