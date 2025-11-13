@@ -1,11 +1,6 @@
 from rich import print
 import random
-from collections import Counter, defaultdict
 import matplotlib.pyplot as plt
-
-# El counter me deja contar elementos facilmente. Y el defaultdict me deja inicializar contadores automaticamente. Lo utilizo para contar 
-# hotdogs vendidos y causas de salida sin tener que iniciar las claves dentro de los diccionario.
-# No se guardan en el json, solo se usan en la simulacion del dia de ventas.
 
 #Función para simular un día de ventas
 def simulacion_dia_de_ventas(app):
@@ -18,9 +13,10 @@ def simulacion_dia_de_ventas(app):
     total_clients = random.randint(0, 200)
     total_hotdogs_sold = 0
     acompañantes_vendidos = 0
-    hotdog_counter = Counter()
-    hotdogs_que_causaron_salida = Counter()
-    ingredientes_que_causaron_salida = Counter()
+    # Diccionarios para contar ventas y causas de salida
+    hotdog_counter = {}
+    hotdogs_que_causaron_salida = {}
+    ingredientes_que_causaron_salida = {}
 
     if not hasattr(app, 'hotdogs') or len(app.hotdogs) == 0:
         print("[italic red]No hay hotdogs en el menú. Cargue el menú antes de simular.")
@@ -42,32 +38,37 @@ def simulacion_dia_de_ventas(app):
             orden.append((hd, extra_acompanante))
 
         # Verificar inventario sin mutar: contamos requerimientos por objeto
-        requeridos = defaultdict(int)
+        requeridos = {}
         for hd_obj, extra_ac in orden:
             # ingredientes principales
-            requeridos[id(hd_obj.pan), 'pan', hd_obj.pan] += 1
-            requeridos[id(hd_obj.salchicha), 'salchicha', hd_obj.salchicha] += 1
-            # salsas y toppings: cada elemento de la lista consume una unidad
+            clave_pan = (id(hd_obj.pan), 'pan', hd_obj.pan)
+            requeridos[clave_pan] = requeridos.get(clave_pan, 0) + 1
+            clave_salchicha = (id(hd_obj.salchicha), 'salchicha', hd_obj.salchicha)
+            requeridos[clave_salchicha] = requeridos.get(clave_salchicha, 0) + 1
+            # Salsas y toppings: cada elemento de la lista consume una unidad
             for s in hd_obj.salsas:
-                requeridos[id(s), 'salsa', s] += 1
+                clave_salsa = (id(s), 'salsa', s)
+                requeridos[clave_salsa] = requeridos.get(clave_salsa, 0) + 1
             for t in hd_obj.toppings:
-                requeridos[id(t), 'topping', t] += 1
-            # acompañante incluido en el hotdog (combo)
+                clave_topping = (id(t), 'topping', t)
+                requeridos[clave_topping] = requeridos.get(clave_topping, 0) + 1
+            # Acompañante incluido en el hotdog (combo)
             if hd_obj.acompañante is not None:
-                requeridos[id(hd_obj.acompañante), 'acompañante', hd_obj.acompañante] += 1
-            # acompañante extra (si el cliente lo compra)
+                clave_acomp = (id(hd_obj.acompañante), 'acompañante', hd_obj.acompañante)
+                requeridos[clave_acomp] = requeridos.get(clave_acomp, 0) + 1
+            # Acompañante extra (si el cliente lo compra)
             if extra_ac:
-                # if hotdog already has acompañante object, we treat extra as another unidad of that same acompañante
-                # if there is no acompañante in the hotdog, pick a random acompañante from app.acompañantes if available
                 if hd_obj.acompañante is not None:
-                    requeridos[id(hd_obj.acompañante), 'acompañante', hd_obj.acompañante] += 1
+                    clave_acomp = (id(hd_obj.acompañante), 'acompañante', hd_obj.acompañante)
+                    requeridos[clave_acomp] = requeridos.get(clave_acomp, 0) + 1
                 else:
                     if hasattr(app, 'acompañantes') and len(app.acompañantes) > 0:
                         acomp_extra = random.choice(app.acompañantes)
-                        requeridos[id(acomp_extra), 'acompañante', acomp_extra] += 1
+                        clave_acomp_extra = (id(acomp_extra), 'acompañante', acomp_extra)
+                        requeridos[clave_acomp_extra] = requeridos.get(clave_acomp_extra, 0) + 1
                     else:
-                        # no hay acompañantes en inventario; we'll register a requirement for None which will fail the check
-                        requeridos[('none', i), 'acompañante', None] += 1
+                        clave_none = (('none', i), 'acompañante', None)
+                        requeridos[clave_none] = requeridos.get(clave_none, 0) + 1
 
         # Ahora comprobar cada requerimiento
         faltante = None
@@ -115,8 +116,8 @@ def simulacion_dia_de_ventas(app):
                 hotdog_fallo = orden[0][0]
 
             print(f"El cliente {i} no pudo comprar. HotDog: '{hotdog_fallo.nombre}' - Ingrediente faltante: {faltante_ingrediente}. Se marchó sin llevarse nada.")
-            hotdogs_que_causaron_salida[hotdog_fallo.nombre] += 1
-            ingredientes_que_causaron_salida[faltante_ingrediente] += 1
+            hotdogs_que_causaron_salida[hotdog_fallo.nombre] = hotdogs_que_causaron_salida.get(hotdog_fallo.nombre, 0) + 1
+            ingredientes_que_causaron_salida[faltante_ingrediente] = ingredientes_que_causaron_salida.get(faltante_ingrediente, 0) + 1
             continue
 
         # Si llegamos aquí, hay stock suficiente: descontar y confirmar venta
@@ -137,7 +138,7 @@ def simulacion_dia_de_ventas(app):
                 acompañantes_vendidos += 1
             if extra_ac:
                 acompañantes_vendidos += 1
-            hotdog_counter[hd_obj.nombre] += 1
+            hotdog_counter[hd_obj.nombre] = hotdog_counter.get(hd_obj.nombre, 0) + 1
 
         # Imprimir la lista de hot dogs que compró el cliente i
         lista_nombres = [hd_obj.nombre for hd_obj, _ in orden]
@@ -152,9 +153,11 @@ def simulacion_dia_de_ventas(app):
     print(f"Clientes que no pudieron comprar: {clientes_no_pudieron_comprar}")
     print(f"Total hot dogs vendidos: {total_hotdogs_sold}")
     print(f"Promedio de hot dogs por cliente: {promedio_hd_por_cliente:.2f}")
-    most_sold = hotdog_counter.most_common(1)
-    if most_sold:
-        print(f"Hot dog más vendido: {most_sold[0][0]} (vendidos: {most_sold[0][1]})")
+    # Calcular el hot dog más vendido
+    if hotdog_counter:
+        nombre_mas_vendido = max(hotdog_counter, key=lambda k: hotdog_counter[k])
+        cantidad_mas_vendida = hotdog_counter[nombre_mas_vendido]
+        print(f"Hot dog más vendido: {nombre_mas_vendido} (vendidos: {cantidad_mas_vendida})")
     else:
         print("Hot dog más vendido: Ninguno")
 

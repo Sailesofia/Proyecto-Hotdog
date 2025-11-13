@@ -3,7 +3,8 @@ from Clases.Ingrediente import Ingrediente
 class Acompañante(Ingrediente):
     
     def __init__(self, nombre: str, tipo: str, tamaño: int, unidad: str):
-        
+        """Constructor de la clase Acompañante
+        """
         super().__init__(nombre, tipo)
         super().dar_stock()
 

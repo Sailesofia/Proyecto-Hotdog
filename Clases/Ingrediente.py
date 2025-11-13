@@ -1,7 +1,8 @@
 class Ingrediente():
     
     def __init__(self, nombre: str, tipo: str):
-        
+        """Constructor de la clase Ingrediente
+        """ 
         self.nombre = nombre
         self.tipo = tipo
         self.stock = 1

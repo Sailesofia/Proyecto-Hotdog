@@ -3,7 +3,7 @@ from Clases.Ingrediente import Ingrediente
 class Pan(Ingrediente):
     
     def __init__(self, nombre: str, tipo: str, tamaño: int, unidad: str):
-        
+        """Constructor de la clase Pan"""
         super().__init__(nombre, tipo)
         super().dar_stock()
 

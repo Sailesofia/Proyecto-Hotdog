@@ -5,7 +5,8 @@ from Clases.Acompañante import Acompañante
 class HotDog():
     
     def __init__(self, nombre, pan: Pan, salchicha: Salchicha, salsas: list, toppings: list, acompañante: Acompañante):
-        
+        """Constructor de la clase HotDog
+        """
         self.nombre = nombre
         self.pan = pan
         self.salchicha = salchicha
@@ -25,13 +26,13 @@ class HotDog():
     def info_salsas(self):
         """Función para obtener la información de las salsas
         """
-        # Return a list of salsa info dicts
+
         return [i.info_salsa() for i in self.salsas]
     
     def info_toppings(self):
         """Función para obtener la información de los toppings
         """
-        # Return a list of topping info dicts
+        
         return [i.info_topping() for i in self.toppings]
     
     def info_hotdog(self):

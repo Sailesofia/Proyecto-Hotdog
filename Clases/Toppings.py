@@ -2,7 +2,8 @@
 class Toppings():
     
     def __init__(self, nombre: str, tipo: str, presentacion: str):
-
+        """Constructor de la clase Toppings
+        """
         self.id = id
         self.nombre = nombre
         self.tipo = tipo

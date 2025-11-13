@@ -2,7 +2,8 @@
 class Salsa():
     
     def __init__(self, nombre: str, base: str, color: str):
-
+        """"Constructor de la clase Salsa
+        """
         self.id = id
         self.nombre = nombre
         self.base = base
