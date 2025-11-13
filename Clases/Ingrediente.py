@@ -4,13 +4,23 @@ class Ingrediente():
         
         self.nombre = nombre
         self.tipo = tipo
+        self.stock = 1
 
+    def dar_stock(self):
+        """Función para obtener el stock de la salsa
+        """
+        if self.stock <= 0:
+            return "No disponible"
+        else:
+            return "Disponible"
+        
     def info_ingrediente(self):
         """Función para obtener la información del ingrediente
         """        
         info_ing = {
             "Nombre": self.nombre,
             "Tipo": self.tipo,
+            "Stock": self.dar_stock()
         }
         return info_ing
     
