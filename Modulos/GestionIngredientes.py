@@ -171,29 +171,33 @@ def verify_within_ingredients(ingredient_name, ingredients_list):
 
 def registrar_pan (panes_app):
     """Función para registrar un nuevo ingrediente
-    """ 
-
+    """  
     print ("\n[italic blue]------------- Introduzca los detalles del ingrediente ------------- \n")  
     panes = panes_app
     nombre = input("Introduzca su nombre: ")  
     tipo = input("Introduzca el tipo: ") 
     tamaño = input("Tamaño del pan en pulgadas: ") 
 
-    if (nombre.isalpha() == False | verify_within_ingredients(nombre, panes) == True):
+    if (nombre.isalpha() == False):
         print("\n[italic red] El nombre del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
-        
-        if (tipo.isalpha() == False):
-            print("\n[italic red] El tipo del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
-            registrar_pan(panes_app)
+        return
+    
+    if (tipo.isalpha() == False):
+        print("\n[italic red] El tipo del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
+        return
 
-            if (tamaño.isdigit() == False):
-                print("\n[italic red] El tamaño del ingrediente debe ser un número. Inténtelo de nuevo.\n")
-                registrar_pan(panes_app)
+    if (tamaño.isnumeric == False):
+        print("\n[italic red] El tamaño del ingrediente debe ser un número. Inténtelo de nuevo.\n")
+        return
 
+
+    if verify_within_ingredients(nombre, panes) == True:
+        return
 
     nuevo_pan = Pan(nombre, tipo, tamaño, "pulgadas")
     agregar_ingrediente_categoria(panes, nuevo_pan)
     print(f"\n[italic green] El pan {nuevo_pan.nombre} ha sido registrado exitosamente.\n")
+
 
 def registrar_acompañante (acompañantes_app):
     """Función para registrar un nuevo acompañante
@@ -205,20 +209,24 @@ def registrar_acompañante (acompañantes_app):
     tamaño = input("Tamaño del pan: ") 
     unidad = input("Unidad de medida: ")
 
-    if (nombre.isalpha() == False | verify_within_ingredients(nombre, acompañantes) == True):
-        print("\n[italic red] El nombre del ingrediente no debe contener números o caracteres especiales. Recuerde que el nombre debe ser único para cada ingrediente. Inténtelo de nuevo.\n")
-        
-        if (tipo.isalpha() == False):
-            print("\n[italic red] El tipo del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
-            registrar_acompañante(acompañantes_app)
+    if (nombre.isalpha() == False ):
+        print("\n[italic red] El nombre del ingrediente no debe contener números o caracteres especiales.\n")
+        return
+    
+    if (tipo.isalpha() == False):
+        print("\n[italic red] El tipo del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
+        return
 
-            if (tamaño.isdigit() == False):
-                print("\n[italic red] El tamaño del ingrediente debe ser un número. Inténtelo de nuevo.\n")
-                registrar_acompañante(acompañantes_app)
+    if (tamaño.isdigit() == False):
+        print("\n[italic red] El tamaño del ingrediente debe ser un número. Inténtelo de nuevo.\n")
+        return
 
-                if (unidad.isalpha() == False):
-                    print("\n[italic red] La unidad de medida no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
-                    registrar_acompañante(acompañantes_app)
+    if (unidad.isalpha() == False):
+        print("\n[italic red] La unidad de medida no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
+        return
+
+    if verify_within_ingredients(nombre, acompañantes_app) == True:
+        return
 
     nuevo_acompañante = Acompañante(nombre, tipo, tamaño, unidad)
     agregar_ingrediente_categoria(acompañantes, nuevo_acompañante)
@@ -234,20 +242,25 @@ def registrar_salchicha (salchichas_app):
     tipo = input("Introduzca el tipo: ") 
     tamaño = input("Tamaño de la salchicha en pulgadas: ") 
 
-    if (nombre.isalpha() == False | verify_within_ingredients(nombre, salchichas) == True):
+    if (nombre.isalpha() == False):
         print("\n[italic red] El nombre del ingrediente no debe contener números o caracteres especiales. Recuerde que el nombre debe ser único para cada ingrediente. Inténtelo de nuevo.\n")
-        
-        if (tipo.isalpha() == False):
-            print("\n[italic red] El tipo del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
-            registrar_salchicha(salchichas_app)
+        return
+    
+    if (tipo.isalpha() == False):
+        print("\n[italic red] El tipo del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
+        return
 
-            if (tamaño.isdigit() == False):
-                print("\n[italic red] El tamaño del ingrediente debe ser un número. Inténtelo de nuevo.\n")
-                registrar_salchicha(salchichas_app)
+    if (tamaño.isdigit() == False):
+        print("\n[italic red] El tamaño del ingrediente debe ser un número. Inténtelo de nuevo.\n")
+        return
+
+    if verify_within_ingredients(nombre, salchichas_app) == True:
+        return
 
     nueva_salchicha = Salchicha(nombre, tipo, tamaño, "pulgadas")
     agregar_ingrediente_categoria(salchichas, nueva_salchicha)
     print(f"\n[italic green] La salchicha {nueva_salchicha.nombre} ha sido registrada exitosamente.\n")
+
 
 def registrar_salsa (salsas_app):
     """Función para registrar una nueva salsa
@@ -258,20 +271,26 @@ def registrar_salsa (salsas_app):
     base = input("Introduzca la base: ") 
     color = input("Color: ")
 
-    if (nombre.isalpha() == False | verify_within_ingredients(nombre, salsas) == True):
+    if (nombre.isalpha() == False):
         print("\n[italic red] El nombre del ingrediente no debe contener números o caracteres especiales. Recuerde que el nombre debe ser único para cada ingrediente. Inténtelo de nuevo.\n")
-        
-        if (base.isalpha() == False):
-            print("\n[italic red] La base del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
-            registrar_salsa(salsas_app)
+        return
+    
+    if (base.isalpha() == False):
+        print("\n[italic red] La base del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
+        return
 
-            if (color.isalpha() == False):
-                print("\n[italic red] El color no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
-                registrar_salsa(salsas_app)
+    if (color.isalpha() == False):
+        print("\n[italic red] El color no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
+        return
+
+    if verify_within_ingredients(nombre, salsas_app) == True:
+        print("\n[italic red] El ingrediente ya existe. No se puede agregar.\n")
+        return
 
     nueva_salsa = Salsa(nombre, base, color)
-    agregar_ingrediente_categoria(nueva_salsa, salsas)
+    agregar_ingrediente_categoria(salsas, nueva_salsa)
     print(f"\n[italic green] La salsa {nueva_salsa.nombre} ha sido registrado exitosamente.\n")
+
 
 def registrar_topping (toppings_app):
     """Función para registrar una nuevo topping
@@ -280,18 +299,22 @@ def registrar_topping (toppings_app):
     toppings = toppings_app
     nombre = input("Introduzca su nombre: ")  
     tipo = input("Introduzca el tipo: ") 
-    presentacion = input("Tamaño de la salchicha en pulgadas: ") 
+    presentacion = input("Presentación: ") 
 
-    if (nombre.isalpha() == False | verify_within_ingredients(nombre, toppings) == True):
+    if (nombre.isalpha() == False):
         print("\n[italic red] El nombre del ingrediente no debe contener números o caracteres especiales. Recuerde que el nombre debe ser único para cada ingrediente. Inténtelo de nuevo.\n")
-        
-        if (tipo.isalpha() == False):
-            print("\n[italic red] El tipo del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
-            registrar_topping(toppings_app)
+        return
+    
+    if (tipo.isalpha() == False):
+        print("\n[italic red] El tipo del ingrediente no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
+        return
 
-            if (presentacion.isalpha() == False):
-                print("\n[italic red] La presentación no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
-                registrar_topping(toppings_app)
+    if (presentacion.isalpha() == False):
+        print("\n[italic red] La presentación no debe contener números o caracteres especiales. Inténtelo de nuevo.\n")
+        return
+
+    if verify_within_ingredients(nombre, toppings_app) == True:
+        print("\n[italic red] El ingrediente ya existe. No se puede agregar.\n")
 
     nuevo_topping = Toppings(nombre, tipo, presentacion)
     agregar_ingrediente_categoria(toppings, nuevo_topping)
@@ -303,6 +326,7 @@ def registrar_topping (toppings_app):
 def eliminar_ingrediente_categoria(ingredientes: list, nombre_ingrediente, hotdogs_app):
     """Función para eliminar un ingrediente de la categoría correspondiente
     """
+    #Lista que contiene los hotdogs que utilizan el ingrediente a eliminar
     hotdogs = encontrar_hotdog_ingredientes(hotdogs_app, nombre_ingrediente)
 
     if len(hotdogs) > 0:
@@ -311,42 +335,60 @@ def eliminar_ingrediente_categoria(ingredientes: list, nombre_ingrediente, hotdo
             print(hotdog.info_hotdog())
     
         while True:
-            option = input ("""
-            ¿Desea eliminar el ingrediente de todos modos? Esta acción eliminará el hotdog que lo contenga.
+            opcion = input ("""
+            ¿Desea eliminar el ingrediente de todos modos? Esta acción eliminará todos los hotdogs que lo contengan.
                                         
             1. Sí 
             2. No
                                                                 
             ---> """)
                     
-            if option =="1":
-                eliminar_ingrediente
-            elif option =="2":
+            if opcion =="1":
+                eliminar_ingrediente(ingredientes, hotdogs_app, hotdogs, nombre_ingrediente)
+                return
+            elif opcion =="2":
                 print ("[italic blue]Volviendo al menu...")
-                break
+                return
             else:
                 print ("[italic red]Opción inválida. ")
+    else:
+        eliminar_ingrediente(ingredientes, hotdogs_app, hotdogs, nombre_ingrediente)
 
 def encontrar_hotdog_ingredientes (hotdogs_app, ingrediente):
     """Función para encontrar hotdogs que contienen un ingrediente específico
-    """  
-
+    """ 
     hotdogs = []
 
     for i in hotdogs_app:
-        if (i.pan == ingrediente) or (i.salchicha == ingrediente) or (i.acompañante == ingrediente) or (verify_within_ingredients(ingrediente, i.salsas) == True) or (verify_within_ingredients(ingrediente, i.toppings) == True):
+        # Normalize search term
+        nombre_buscar = ingrediente.lower() if isinstance(ingrediente, str) else str(ingrediente).lower()
+
+        # Helper to get the nombre attribute if the component is an object, otherwise string repr
+        def comp_nombre(comp):
+            if hasattr(comp, 'nombre'):
+                return comp.nombre.lower()
+            return str(comp).lower()
+
+        # Check pan, salchicha and acompañante
+        pan_match = comp_nombre(i.pan) == nombre_buscar
+        salchicha_match = comp_nombre(i.salchicha) == nombre_buscar
+        acompañante_match = comp_nombre(i.acompañante) == nombre_buscar
+
+        # Check inside lists (salsas and toppings) without invoking verify_within_ingredients to avoid prints
+        salsas_match = any((hasattr(s, 'nombre') and s.nombre.lower() == nombre_buscar) or (not hasattr(s, 'nombre') and str(s).lower() == nombre_buscar) for s in getattr(i, 'salsas', []))
+        toppings_match = any((hasattr(t, 'nombre') and t.nombre.lower() == nombre_buscar) or (not hasattr(t, 'nombre') and str(t).lower() == nombre_buscar) for t in getattr(i, 'toppings', []))
+
+        if pan_match or salchicha_match or acompañante_match or salsas_match or toppings_match:
             hotdogs.append(i)
-        else:
-            pass
 
     return hotdogs
 
 def eliminar_ingrediente (ingredientes_app, hotdogs_app, hotdogs: list, nombre_ingrediente):
     """Función para eliminar un ingrediente seleccionado
-    """ 
+    """  
 
-    if hotdogs < 1:
-        pass
+    if len(hotdogs) < 1:
+        print(f"\n[italic blue] No hay hotdogs que contengan este ingrediente.\n")
     else:
         for i in hotdogs_app:
             for j in hotdogs:
