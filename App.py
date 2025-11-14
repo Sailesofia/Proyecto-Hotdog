@@ -468,7 +468,7 @@ class App():
         self._salsas_map = {}
         self._toppings_map = {}
         
-        print(f"Carga de datos JSON completada desde '{nombre_archivo}'.")     
+        print(f"Carga de datos JSON completada desde '{nombre_archivo}'.")      
     
     def principal_menu(self):
         """Menu principal. Posee las acciones principales para gestionar el programa.
