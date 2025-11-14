@@ -154,12 +154,6 @@
                 "Base": "mostaza",
                 "Color": "amarillo",
                 "Stock": "Disponible"
-            },
-            {
-                "Nombre": "relish",
-                "Base": "pepino",
-                "Color": "verde",
-                "Stock": "Disponible"
             }
         ],
         "toppings": [
@@ -318,7 +312,7 @@
                 "Tipo": "Alcohol",
                 "Tamaño": 500,
                 "Unidad": "mililitros",
-                "Stock": "Disponible"
+                "Stock": "No disponible"
             }
         ]
     },
@@ -342,47 +336,6 @@
             "Salsas": [],
             "Toppings": [],
             "Acompañante": null,
-            "Stock": 1
-        },
-        {
-            "Nombre": "inglés",
-            "Pan": {
-                "Nombre": "integral",
-                "Tipo": "trigo entero",
-                "Tamaño": 6,
-                "Unidad": "pulgadas",
-                "Stock": "Disponible"
-            },
-            "Salchicha": {
-                "Nombre": "breakfast",
-                "Tipo": "res",
-                "Tamaño": 6,
-                "Unidad": "pulgadas",
-                "Stock": "Disponible"
-            },
-            "Salsas": [
-                {
-                    "Nombre": "relish",
-                    "Base": "pepino",
-                    "Color": "verde",
-                    "Stock": "Disponible"
-                }
-            ],
-            "Toppings": [
-                {
-                    "Nombre": "cebolla",
-                    "Tipo": "vegetal",
-                    "Presentacion": "cuadritos",
-                    "Stock": "Disponible"
-                }
-            ],
-            "Acompañante": {
-                "Nombre": "Papas",
-                "Tipo": "Papas fritas",
-                "Tamaño": 100,
-                "Unidad": "gramos",
-                "Stock": "Disponible"
-            },
             "Stock": 1
         },
         {
@@ -522,65 +475,6 @@
             "Stock": 1
         },
         {
-            "Nombre": "varsovia",
-            "Pan": {
-                "Nombre": "especial",
-                "Tipo": "queso",
-                "Tamaño": 9,
-                "Unidad": "pulgadas",
-                "Stock": "Disponible"
-            },
-            "Salchicha": {
-                "Nombre": "polaca",
-                "Tipo": "mezcla",
-                "Tamaño": 9,
-                "Unidad": "pulgadas",
-                "Stock": "Disponible"
-            },
-            "Salsas": [
-                {
-                    "Nombre": "mayonesa",
-                    "Base": "aceite",
-                    "Color": "blanco",
-                    "Stock": "Disponible"
-                },
-                {
-                    "Nombre": "BBQ",
-                    "Base": "azucar morena",
-                    "Color": "marrón",
-                    "Stock": "Disponible"
-                },
-                {
-                    "Nombre": "relish",
-                    "Base": "pepino",
-                    "Color": "verde",
-                    "Stock": "Disponible"
-                }
-            ],
-            "Toppings": [
-                {
-                    "Nombre": "tomate",
-                    "Tipo": "vegetal",
-                    "Presentacion": "cuadritos",
-                    "Stock": "Disponible"
-                },
-                {
-                    "Nombre": "cilantro",
-                    "Tipo": "vegetal",
-                    "Presentacion": "picadito",
-                    "Stock": "Disponible"
-                },
-                {
-                    "Nombre": "repollo",
-                    "Tipo": "vegetal",
-                    "Presentacion": "rallado",
-                    "Stock": "Disponible"
-                }
-            ],
-            "Acompañante": null,
-            "Stock": 1
-        },
-        {
             "Nombre": "fitness",
             "Pan": {
                 "Nombre": "sin gluten",
@@ -679,59 +573,6 @@
                     "Nombre": "papitas",
                     "Tipo": "fritura",
                     "Presentacion": "picadito",
-                    "Stock": "Disponible"
-                }
-            ],
-            "Acompañante": null,
-            "Stock": 1
-        },
-        {
-            "Nombre": "coctel",
-            "Pan": {
-                "Nombre": "gigante",
-                "Tipo": "ajonjolí",
-                "Tamaño": 12,
-                "Unidad": "pulgadas",
-                "Stock": "Disponible"
-            },
-            "Salchicha": {
-                "Nombre": "vienna",
-                "Tipo": "mezcla",
-                "Tamaño": 12,
-                "Unidad": "pulgadas",
-                "Stock": "Disponible"
-            },
-            "Salsas": [
-                {
-                    "Nombre": "ketchup",
-                    "Base": "tomate",
-                    "Color": "rojo",
-                    "Stock": "Disponible"
-                },
-                {
-                    "Nombre": "mostaza",
-                    "Base": "mostaza",
-                    "Color": "amarillo",
-                    "Stock": "Disponible"
-                },
-                {
-                    "Nombre": "relish",
-                    "Base": "pepino",
-                    "Color": "verde",
-                    "Stock": "Disponible"
-                }
-            ],
-            "Toppings": [
-                {
-                    "Nombre": "cebolla",
-                    "Tipo": "vegetal",
-                    "Presentacion": "cuadritos",
-                    "Stock": "Disponible"
-                },
-                {
-                    "Nombre": "repollo",
-                    "Tipo": "vegetal",
-                    "Presentacion": "rallado",
                     "Stock": "Disponible"
                 }
             ],
